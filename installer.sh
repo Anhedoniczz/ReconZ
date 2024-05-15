@@ -37,5 +37,4 @@ cd
 git clone https://github.com/1ndianl33t/Gf-Patterns
 sudo mv Gf-Patterns/*.json ~/.gf
 rm -rf Gf-Patterns
-chmod +x *
-chmod +x Resources/*.sh
+
