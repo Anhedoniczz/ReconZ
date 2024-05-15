@@ -45,13 +45,13 @@ echo "[+] Step 3: Openredirect Check"
 python3 Resources/Openredirect.py $domain
 
 echo "[+] Step 4: Host Header Injection scan"
-bash Resources/HostHeaderScan.sh -l alivesubs > hhiscan
+bash Resources/HostHeaderscan.sh -l alivesubs > hhiscan
 
-echo "[+] Step 5: Cors Exploit scan"
+echo "[+] Step 5: Host Header Injection scan"
 python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
 
 echo "[+] Step 6: Crawling Parameters and filtering them"
-cat alivesubs | katana -passive -pss waybackarchive,commoncrawl,alienvault | uro > links
+cat alivesubs | gau --threads 5 | uro > links
 
 echo "[+] Step 7: Filtering XSS parameters and Testing Target on XSS/CVEs Using XSStrike"
 cat links | gf xss > xsslinks
