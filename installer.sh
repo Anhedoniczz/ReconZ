@@ -29,6 +29,7 @@ sudo apt-get install subfinder
 git clone https://github.com/s0md3v/Corsy
 pip3 install -r ~/tools/Corsy/requirements.txt
 go install github.com/bitquark/shortscan/cmd/shortscan@latest
+go install github.com/lc/gau/v2/cmd/gau@latest
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 go install github.com/tomnomnom/waybackurls@latest
 go install github.com/tomnomnom/gf@latest
@@ -37,4 +38,3 @@ cd
 git clone https://github.com/1ndianl33t/Gf-Patterns
 sudo mv Gf-Patterns/*.json ~/.gf
 rm -rf Gf-Patterns
-
