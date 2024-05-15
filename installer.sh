@@ -14,16 +14,17 @@ cd ~/tools
 git clone https://github.com/gotr00t0day/spyhunt
 pip3 install -r ~/tools/spyhunt/requirements.txt
 sudo python3 spyhunt/install.py
-wget -P ~/tools/spyhunt https://raw.githubusercontent.com/Anhedoniczz/AutoRecon/main/Resources/spyhunt.py
+wget -P ~/tools/spyhunt https://raw.githubusercontent.com/Anhedoniczz/ReconZ/main/Resources/spyhunt.py
 git clone https://github.com/s0md3v/XSStrike
 pip3 install -r ~/tools/XSStrike/requirements.txt
-wget -P ~/tools/XSStrike https://raw.githubusercontent.com/Anhedoniczz/AutoRecon/main/Resources/autoxss.sh
+wget -P ~/tools/XSStrike https://raw.githubusercontent.com/Anhedoniczz/Reconz/main/Resources/autoxss.sh
 chmod +x ~/tools/XSStrike/autoxss.sh
 sudo apt-get install httpx-toolkit
 pip3 install uro
 pip3 install google
 sudo mv ~/.local/share/bin/uro /usr/bin/
 sudo apt-get install nuclei
+sudo apt-get install subfinder
 git clone https://github.com/s0md3v/Corsy
 pip3 install -r ~/tools/Corsy/requirements.txt
 go install github.com/bitquark/shortscan/cmd/shortscan@latest
