@@ -21,6 +21,7 @@ wget -P ~/tools/XSStrike https://raw.githubusercontent.com/Anhedoniczz/AutoRecon
 chmod +x ~/tools/XSStrike/autoxss.sh
 sudo apt-get install httpx-toolkit
 pip3 install uro
+pip3 install google
 sudo mv ~/.local/share/bin/uro /usr/bin/
 sudo apt-get install nuclei
 git clone https://github.com/s0md3v/Corsy
@@ -34,3 +35,5 @@ cd
 git clone https://github.com/1ndianl33t/Gf-Patterns
 sudo mv Gf-Patterns/*.json ~/.gf
 rm -rf Gf-Patterns
+chmod +x *
+chmod +x Resources/*.sh
