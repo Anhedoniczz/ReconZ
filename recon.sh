@@ -47,7 +47,7 @@ python3 Resources/Openredirect.py $domain
 echo "[+] Step 4: Host Header Injection scan"
 bash Resources/HostHeaderScan.sh -l alivesubs > hhiscan
 
-echo "[+] Step 5: Host Header Injection scan"
+echo "[+] Step 5: Cors Exploit scan"
 python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
 
 echo "[+] Step 6: Crawling Parameters and filtering them"
