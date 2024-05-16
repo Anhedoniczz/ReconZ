@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input_file="xsslink"
+input_file="xsslinks"
 if [ ! -f "$input_file" ]; then
     echo "Input file $input_file not found."
     exit 1
