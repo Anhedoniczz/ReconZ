@@ -24,8 +24,8 @@ sudo apt-get install httpx-toolkit
 pip3 install uro
 pip3 install google
 sudo mv ~/.local/share/bin/uro /usr/bin/
-sudo apt-get install nuclei
-sudo apt-get install subfinder
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 git clone https://github.com/s0md3v/Corsy
 pip3 install -r ~/tools/Corsy/requirements.txt
 go install github.com/bitquark/shortscan/cmd/shortscan@latest
