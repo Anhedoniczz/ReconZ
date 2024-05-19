@@ -11,6 +11,7 @@ sudo apt install golang-go
 #Installing tools 
 mkdir ~/tools
 cd ~/tools
+git clone https://github.com/bambish/ScanQLi
 git clone https://github.com/gotr00t0day/spyhunt
 pip3 install -r ~/tools/spyhunt/requirements.txt
 sudo python3 spyhunt/install.py
@@ -21,9 +22,8 @@ pip3 install -r ~/tools/XSStrike/requirements.txt
 wget -P ~/tools/XSStrike https://raw.githubusercontent.com/Anhedoniczz/Reconz/main/Resources/autoxss.sh
 chmod +x ~/tools/XSStrike/autoxss.sh
 sudo apt-get install httpx-toolkit
-pip3 install uro
-pip3 install google
-sudo mv ~/.local/share/bin/uro /usr/bin/
+sudo pip3 install -r requirements.txt
+sudo mv ~/.local/bin/uro /usr/bin/
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 git clone https://github.com/s0md3v/Corsy
