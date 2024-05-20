@@ -7,14 +7,6 @@ from huepy import *
 
 start_time = time.time()
 
-def clear():
-    if 'linux' in sys.platform:
-        os.system('clear')
-    elif 'darwin' in sys.platform:
-        os.system('clear')
-    else:
-        os.system('cls')
-
 def banner():
     ban = '''
  _               _ _     _     _         _       _         
@@ -39,10 +31,9 @@ def concatenate_list_data(list, result):
     return result
 
 def main():
-    clear()
     banner()
 
-    with open('links', 'r') as file:
+    with open('sqlilinks', 'r') as file:
         content = file.read()
     urls = content.splitlines()
     file = open('payloads.txt', 'r')
