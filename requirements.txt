@@ -8,3 +8,4 @@ numpy>=1.12.1
 lxml>=3.7.1
 uro
 google
+huepy
