@@ -61,11 +61,6 @@ echo "[+] Step 8: Filtering LFI parameters and Testing Target on LFI/RFi/Data Tr
 cat links | gf lfi > lfilinks
 nuclei -l lfilinks -tags lfi,rfi
 
-echo "[+] Step 9: SQLI Scan"
-cat links | gf sqli > ~/tools/ScanQLi/sqlilinks
-cd ~/tools/ScanQLi/
-input_file="sqlilinks"
-while IFS= read -r url
-do
-  python3 scanqli.py -u "$url" -v
-done < "$input_file"
+echo "[+] Step 9: SQLI Scan (niakos pativiscemit)"
+cat links | gf sqli > sqlilinks
+python3 Resources/ErrorBasedSqli.py
