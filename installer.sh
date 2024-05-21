@@ -8,6 +8,9 @@ wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -
 # Update package lists
 sudo apt update
 sudo apt install golang-go
+pip3 install uro
+pip3 install google
+pip3 install huepy
 #Installing tools 
 mkdir ~/tools
 cd ~/tools
