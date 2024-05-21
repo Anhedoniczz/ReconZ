@@ -1,6 +1,5 @@
 import requests
 import time
-import requests
 from huepy import *
 
 start_time = time.time()
@@ -34,25 +33,25 @@ def main():
     with open('sqlilinks', 'r') as file:
         content = file.read()
     urls = content.splitlines()
-    file = open('ErrorSQLPayloads.txt', 'r')
-    payloads = file.read().splitlines()
+    with open('ErrorSQLPayloads.txt', 'r') as file:
+        payloads = file.read().splitlines()
 
     vulnerable_urls = []
 
     for uri in urls:
         for payload in payloads:
-            final_url = uri+payload
+            final_url = uri + payload
             
             try:
                 req = requests.get("{}".format(final_url))
-                res = req.text
-                if 'SQL' in res or 'sql' in res or 'Sql' in res:
-                    print("["+green("sql-injection")+"] "+final_url)
-                    break                           
-            except:
+                if req.status_code == 200:
+                    res = req.text
+                    if 'SQL' in res or 'sql' in res or 'Sql' in res:
+                        print("[" + green("sql-injection") + "] " + final_url)
+                        break                           
+            except requests.RequestException as e:
+                print(red("Error: {}".format(e)))
                 pass
 
 if __name__ == "__main__":
-    clear()
-    banner()
     main()
