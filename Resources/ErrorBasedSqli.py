@@ -34,7 +34,7 @@ def main():
     with open('sqlilinks', 'r') as file:
         content = file.read()
     urls = content.splitlines()
-    file = open('Resources/payloads.txt', 'r')
+    file = open('ErrorSQLPayloads.txt', 'r')
     payloads = file.read().splitlines()
 
     vulnerable_urls = []
