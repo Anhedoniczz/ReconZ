@@ -82,6 +82,8 @@ Some payloads to bypass specific wafs:
 XSS Payloads are from Lostsec Channel <3
 You can check the waf type using wappalyzer and replace xss payloads based on that.
 
+Also feel free to change SQLI payloads in ErrorSQLPayloads.txt, just add the list of your choice and it will work perfectly fine.
+
 
 Creds to authors of used tools:
 
