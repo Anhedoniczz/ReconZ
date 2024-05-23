@@ -53,9 +53,9 @@ python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
 echo "[+] Step 6: Crawling Parameters and filtering them"
 cat alivesubs | gau --threads 5 | gouro > links
 
-echo "[+] Step 7: Filtering XSS parameters and Testing Target on XSS/CVEs Using XSStrike"
+echo "[+] Step 7: Filtering XSS parameters and Testing Target on XSS"
 cat links | gf xss > xsslinks
-bash Resources/autoxss.sh
+cat xsslinks | qsreplace '<sCript>confirm(1)</sCript>' | xsschecker -match '<sCript>confirm(1)</sCript>' -vuln
 
 echo "[+] Step 8: Filtering LFI parameters and Testing Target on LFI/RFi/Data Traversal"
 cat links | gf lfi > lfilinks
