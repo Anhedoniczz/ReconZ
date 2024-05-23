@@ -30,7 +30,6 @@ go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/felipemelchior/gouro@latest
 git clone https://github.com/s0md3v/Corsy
 pip3 install -r ~/tools/Corsy/requirements.txt
-go install github.com/bitquark/shortscan/cmd/shortscan@latest
 go install github.com/lc/gau/v2/cmd/gau@latest
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 go install github.com/tomnomnom/waybackurls@latest
