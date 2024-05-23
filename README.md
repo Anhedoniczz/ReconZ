@@ -26,13 +26,23 @@ usage: ./recon.sh -u domain
 ```
 
 Creds to authors of used tools:
+
 https://github.com/gotr00t0day/spyhunt
+
 https://github.com/s0md3v/XSStrike
+
 https://github.com/projectdiscovery/nuclei
+
 https://github.com/projectdiscovery/subfinder
+
 https://github.com/felipemelchior/gouro
+
 https://github.com/s0md3v/Corsy
+
 https://github.com/lc/gau
+
 https://github.com/projectdiscovery/katana
+
 https://github.com/tomnomnom/waybackurls
+
 https://github.com/tomnomnom/gf
