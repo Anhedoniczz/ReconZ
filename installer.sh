@@ -28,6 +28,8 @@ sudo mv ~/.local/bin/uro /usr/bin/
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/felipemelchior/gouro@latest
+go install github.com/rix4uni/xsschecker@latest
+go install github.com/tomnomnom/qsreplace@latest
 git clone https://github.com/s0md3v/Corsy
 pip3 install -r ~/tools/Corsy/requirements.txt
 go install github.com/lc/gau/v2/cmd/gau@latest
