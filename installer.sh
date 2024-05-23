@@ -13,7 +13,6 @@ pip3 install huepy
 #Installing tools 
 mkdir ~/tools
 cd ~/tools
-git clone https://github.com/bambish/ScanQLi
 git clone https://github.com/gotr00t0day/spyhunt
 pip3 install -r ~/tools/spyhunt/requirements.txt
 sudo python3 spyhunt/install.py
