@@ -62,7 +62,8 @@ cat secret.txt | grep google > googleapi.txt
 
 echo "[+] Step 8: Filtering XSS parameters and Testing Target on XSS"
 cat links | gf xss > xsslinks
-cat xsslinks | qsreplace '<sCript>confirm(1)</sCript>' | xsschecker -match '<sCript>confirm(1)</sCript>' -vuln
+payload="<sCript>confirm(1)</sCript>"
+cat xsslinks | qsreplace $payload | xsschecker -match $payload -vuln
 
 echo "[+] Step 9: Filtering LFI parameters and Testing Target on LFI/RFi/Data Traversal"
 cat links | gf lfi > lfilinks
