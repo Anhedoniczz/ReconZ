@@ -55,7 +55,7 @@ cat alivesubs | gau --threads 5 | gouro > links
 
 echo "[+] Step 7: Filtering JS links and finding sensitive data in them"
 cat links | grep ".js$" > jsfiles.txt
-cat  jsfiles.txt | while read url; do python3 ~/tools/SecretFinder/SecretFinder.py -i $url -o cli >> secret.txt; done
+cat jsfiles.txt | while read url; do python3 ~/tools/SecretFinder/SecretFinder.py -i $url -o cli >> secret.txt; done
 cat secret.txt | grep aws > awsapi.txt
 cat secret.txt | grep Heroku > herokuapi.txt
 cat secret.txt | grep google > googleapi.txt
