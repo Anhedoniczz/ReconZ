@@ -17,7 +17,7 @@ git clone https://github.com/gotr00t0day/spyhunt
 pip3 install -r ~/tools/spyhunt/requirements.txt
 sudo python3 spyhunt/install.py
 sudo rm -rf ~/tools/spyhunt/spyhunt.py
-wget -P ~/tools/spyhunt https://raw.githubusercontent.com/Anhedoniczz/ReconZ/main/Resources/spyhunt.py
+cp ~/ReconZ/Resources/spyhunt.py ~/tools/spyhunt/
 git clone https://github.com/felipemelchior/gouro
 cd gouro
 rm -rf main.go
