@@ -23,7 +23,7 @@ cd uro
 python3 setup.py sdist
 cd dist
 pip3 install *
-cd ..
+cd ../..
 git clone https://github.com/m4ll0k/SecretFinder
 pip3 install -r ~/tools/SecretFinder/requirements.txt
 sudo apt-get install httpx-toolkit
