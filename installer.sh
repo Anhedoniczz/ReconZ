@@ -18,20 +18,9 @@ pip3 install -r ~/tools/spyhunt/requirements.txt
 sudo python3 spyhunt/install.py
 sudo rm -rf ~/tools/spyhunt/spyhunt.py
 cp ~/ReconZ/Resources/spyhunt.py ~/tools/spyhunt/
-git clone https://github.com/felipemelchior/gouro
-cd gouro
-rm -rf main.go
-cp ~/ReconZ/Resources/gouro.go ~/tools/gouro/main.go
-export GOPATH=$HOME/gopath
-export PATH=$PATH:$GOPATH/bin
-go build ./...
 sudo mv gouro ~/gopath/bin
 git clone https://github.com/m4ll0k/SecretFinder
 pip3 install -r ~/tools/SecretFinder/requirements.txt
-git clone https://github.com/s0md3v/XSStrike
-pip3 install -r ~/tools/XSStrike/requirements.txt
-wget -P ~/tools/XSStrike https://raw.githubusercontent.com/Anhedoniczz/Reconz/main/Resources/autoxss.sh
-chmod +x ~/tools/XSStrike/autoxss.sh
 sudo apt-get install httpx-toolkit
 sudo pip3 install -r requirements.txt
 sudo mv ~/.local/bin/uro /usr/bin/
@@ -42,6 +31,14 @@ go install github.com/rix4uni/xsschecker@latest
 go install github.com/tomnomnom/qsreplace@latest
 git clone https://github.com/s0md3v/Corsy
 pip3 install -r ~/tools/Corsy/requirements.txt
+git clone https://github.com/felipemelchior/gouro
+cd gouro
+rm -rf main.go
+cp ~/ReconZ/Resources/gouro.go ~/tools/gouro/main.go
+export GOPATH=$HOME/gopath
+export PATH=$PATH:$GOPATH/bin
+go build ./...
+cd ..
 go install github.com/lc/gau/v2/cmd/gau@latest
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 go install github.com/tomnomnom/waybackurls@latest
