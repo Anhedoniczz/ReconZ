@@ -39,7 +39,7 @@ echo "[+] Step 1: Running spyhunt.py to find subdomains for $domain..."
 python3 ~/tools/spyhunt/spyhunt.py -s "$domain" --save subdomains
 
 echo "[+] Step 2: Checking for live subdomains using httpx-toolkit..."
-httpx-toolkit -l subdomains -ports 80,443,8000,8080,8888 -mc 200,403,400,500 -threads 200 -o alivesubs 
+httpx-toolkit -l subdomains -ports 80,443,8000,8080,8888 -threads 200 -o alivesubs 
 
 echo "[+] Step 3: Openredirect Check"
 python3 Resources/Openredirect.py $domain
