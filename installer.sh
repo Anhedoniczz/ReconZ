@@ -22,7 +22,7 @@ sudo mv gouro ~/gopath/bin
 git clone https://github.com/m4ll0k/SecretFinder
 pip3 install -r ~/tools/SecretFinder/requirements.txt
 sudo apt-get install httpx-toolkit
-sudo pip3 install -r requirements.txt
+sudo pip3 install -r ~/ReconZ/requirements.txt
 sudo mv ~/.local/bin/uro /usr/bin/
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
