@@ -18,6 +18,8 @@ pip3 install -r ~/tools/spyhunt/requirements.txt
 sudo python3 spyhunt/install.py
 sudo rm -rf ~/tools/spyhunt/spyhunt.py
 wget -P ~/tools/spyhunt https://raw.githubusercontent.com/Anhedoniczz/ReconZ/main/Resources/spyhunt.py
+git clone https://github.com/m4ll0k/SecretFinder
+pip3 install -r ~/tools/SecretFinder/requirements.txt
 git clone https://github.com/s0md3v/XSStrike
 pip3 install -r ~/tools/XSStrike/requirements.txt
 wget -P ~/tools/XSStrike https://raw.githubusercontent.com/Anhedoniczz/Reconz/main/Resources/autoxss.sh
