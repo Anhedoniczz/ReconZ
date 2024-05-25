@@ -51,7 +51,7 @@ echo "[+] Step 5: Cors Exploit scan"
 python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
 
 echo "[+] Step 6: Crawling Parameters and filtering them"
-cat alivesubs | gau --threads 5 > links
+cat alivesubs | gau --threads 5 | uro > links
 
 echo "[+] Step 7: Filtering JS links and finding sensitive data in them"
 cat links | grep ".js$" > jsfiles.txt
