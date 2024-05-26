@@ -27,7 +27,7 @@ usage: ./recon.sh -u domain
 
 
 # FOR ADVANCED XSS 
-The tool uses a basic XSS payload to exploit the websites. If you want to do something more advanced, like bypass waf, or use any other payload, you can change line 58.
+The tool uses a basic XSS payload to exploit the websites. If you want to do something more advanced, like bypass waf, or use any other payload, you can change line 65.
 Some payloads to bypass specific wafs: 
 
 
