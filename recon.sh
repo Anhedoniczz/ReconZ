@@ -45,7 +45,7 @@ echo "[+] Step 3: Openredirect Check"
 python3 Resources/Openredirect.py $domain
 
 echo "[+] Step 4: Host Header Injection scan"
-sudo bash Resources/HostHeaderScan.sh -l alivesubs > hhiscan
+sudo bash Resources/HostHeaderScan.sh -l alivesubs | grep "is vuln" > hhscanvulns
 
 echo "[+] Step 5: Cors Exploit scan"
 python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
