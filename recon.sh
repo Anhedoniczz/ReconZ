@@ -71,5 +71,5 @@ cat $domain/links | gf lfi > $domain/lfilinks
 nuclei -l $domain/lfilinks -tags lfi,rfi
 
 echo "[+] Step 10: SQLI Scan (niakos pativiscemit)"
-cat $domain/links | gf sqli > $domain/sqlilinks
+cat $domain/links | gf sqli > sqlilinks
 python3 Resources/ErrorBasedSqli.py
