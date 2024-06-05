@@ -70,6 +70,6 @@ echo "[+] Step 9: Filtering LFI parameters and Testing Target on LFI/RFi/Data Tr
 cat $domain/links | gf lfi > $domain/lfilinks
 nuclei -l $domain/lfilinks -tags lfi,rfi
 
-echo "[+] Step 10: SQLI Scan (niakos pativiscemit)"
+echo "[+] Step 10: SQLI Scan"
 cat $domain/links | gf sqli > sqlilinks
 python3 Resources/ErrorBasedSqli.py
