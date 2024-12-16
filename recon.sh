@@ -36,8 +36,12 @@ if [ -z "$domain" ]; then
 fi
 
 mkdir $domain
-echo "[+] Step 1: Running spyhunt.py to find subdomains for $domain..."
-python3 ~/tools/spyhunt/spyhunt.py -s "$domain" --save $domain/subdomains
+echo "[+] Step 1: Searching for subdomains for $domain..."
+assetfinder -subs-only "$domain" | uniq | sort > "$domain/subdomains_assetfinder"
+subfinder -d "$domain" -silent > "$domain/subdomains_subfinder"
+cat "$domain/subdomains_assetfinder" "$domain/subdomains_subfinder" | sort -u > "$domain/subdomains"
+rm "$domain/subdomains_assetfinder" "$domain/subdomains_subfinder"
+echo "[+] Subdomains saved to $domain/subdomains."
 
 echo "[+] Step 2: Checking for live subdomains using httpx-toolkit..."
 httpx-toolkit -l $domain/subdomains -ports 80,443,8000,8080,8888 -threads 200 -o $domain/alivesubs 
