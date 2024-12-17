@@ -45,6 +45,7 @@ echo "[+] Subdomains saved to $domain/subdomains."
 
 echo "[+] Step 2: Checking for live subdomains using httpx-toolkit..."
 httpx-toolkit -l $domain/subdomains -ports 80,443,8000,8080,8888 -threads 200 -o $domain/alivesubs 
+awk -F'//' '{print $2}' "$domain/alivesubs" | sort -u > "$domain/validdomains"
 
 echo "[+] Step 3: Openredirect Check"
 python3 Resources/Openredirect.py $domain
@@ -60,8 +61,7 @@ cat $domain/alivesubs | gau --threads 5 | uro > $domain/links
 
 echo "[+] Step 7: Filtering XSS parameters and Testing Target on XSS"
 cat $domain/links | gf xss > $domain/xsslinks
-payload="<sCript>confirm(1)</sCript>"
-cat $domain/xsslinks | qsreplace $payload | xsschecker -match $payload -vuln
+cat $domain/xsslinks | Gxss -p Rxss | dalfox pipe > $domain/xsserrors
 
 echo "[+] Step 8: Filtering LFI parameters and Testing Target on LFI/RFi/Data Traversal"
 cat $domain/links | gf lfi > $domain/lfilinks
