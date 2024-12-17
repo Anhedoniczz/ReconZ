@@ -19,8 +19,6 @@ python3 setup.py sdist
 cd dist
 pip3 install *
 cd ../..
-git clone https://github.com/m4ll0k/SecretFinder
-pip3 install -r ~/tools/SecretFinder/requirements.txt
 sudo apt-get install httpx-toolkit
 sudo pip3 install -r ~/ReconZ/requirements.txt
 sudo mv ~/.local/bin/uro /usr/bin/
@@ -34,6 +32,8 @@ pip3 install -r ~/tools/Corsy/requirements.txt
 go install github.com/lc/gau/v2/cmd/gau@latest
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 go install github.com/tomnomnom/waybackurls@latest
+go install github.com/KathanP19/Gxss@latest
+go install github.com/hahwul/dalfox/v2@latest
 go install github.com/tomnomnom/gf@latest
 mkdir ~/.gf
 cd 
