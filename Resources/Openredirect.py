@@ -13,7 +13,7 @@ print()
 
 def search_and_filter(input_domain):
     search_query = f"site:{input_domain} inurl:redir | inurl:url | inurl:redirect | inurl:return | inurl:src=http | inurl:r=http"
-    search_results = search(search_query, num=10, stop=10)
+    search_results = search(search_query)
     
     filtered_links = []
     
